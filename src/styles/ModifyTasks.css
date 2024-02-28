@@ -1,0 +1,28 @@
+.container_add{
+  position: relative;
+  margin-top: 20px;
+}
+.text_add{
+  margin-bottom: 10px;
+}
+.input_add{
+  width: 100%;
+  height: 28px;  
+  left: 0;
+  background: #4D4D4D;
+}
+.btn_add{
+  width: 100px;
+  height: 36px; 
+  margin-top: 6px; 
+ 
+  box-shadow: inset 4px 4px rgb(69, 58, 119, 0.46);
+  background-color: #04AA6D;
+
+  cursor: pointer;
+  font-weight: bold;
+}
+.input_add, .btn_add{  
+  border: 2.5px solid grey;
+  border-radius: 6px;
+}
