@@ -1,8 +1,41 @@
 import './App.css';
-import Alltasks from './controller/AllTasks';
-import ModifyTasks from './controller/ModifyTasks';
+import Alltasks from './components/AllTasks';
+import ModifyTasks from './components/ModifyTasks';
+
+import { useState } from 'react';
+import { isEmpty } from 'lodash'; 
+import shortid from 'shortid';
 
 function App() {
+
+  //creamos const task de useState vacio, para usarlo en el campo ingresar tareas.
+  const [task, setTask] = useState("");
+
+  const [tasks,setTasks] = useState([]);
+  
+   
+
+  const addTaskScreen = (e) =>{    
+    e.preventDefault(); 
+
+    
+    if(isEmpty(task)){
+      console.log(" Ingrese una tarea");
+      return;
+    }
+
+    const newTask = {
+      id: shortid.generate(),
+      nombre: task
+    }  
+
+    console.log(" tarea guardada");
+    setTasks([...tasks, newTask]);   
+
+
+    setTask("");
+  }
+
   return (
     <div className='container'>
       <h1>
@@ -10,13 +43,20 @@ function App() {
       </h1>
       
       <div className='container_data'>
-        <Alltasks>
-
-        </Alltasks> 
         
-        <ModifyTasks className='modify_data'>
-
-        </ModifyTasks>
+        <Alltasks 
+          className = 'createTask'                 
+          tasks = {tasks} 
+        /> 
+        <ModifyTasks         
+          className='modify_data'
+          task = {task}
+          setTask = {setTask}
+          addTaskScreen={addTaskScreen} 
+          textName={true}         
+          textButton={true}
+        />
+                
       </div>      
     </div>
   );

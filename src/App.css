@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;     
-    background: #2C3032;
+    background-color: #2C3032;
     color: white;
     font-family: sans-serif; 
 }
@@ -14,11 +14,15 @@ body{
 }
 .container_data{
     display: flex;
-    justify-content: center ;
-    align-items: center;
+    
+    align-items: stretch;
+    justify-content: space-around;
     gap: 26px; 
+    margin-top: 28px;
 }
-.input_tasks{
-    width: 150px;
-  height: 22px;
-}
+
+.spaceTask{
+    background: white;
+    height: 1px;
+    margin-bottom: 5px;
+  }
