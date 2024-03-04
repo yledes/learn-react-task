@@ -12,12 +12,9 @@ function App() {
   const [task, setTask] = useState("");
 
   const [tasks,setTasks] = useState([]);
-  
-   
-
+    
   const addTaskScreen = (e) =>{    
     e.preventDefault(); 
-
     
     if(isEmpty(task)){
       console.log(" Ingrese una tarea");
@@ -28,12 +25,17 @@ function App() {
       id: shortid.generate(),
       nombre: task
     }  
-
     console.log(" tarea guardada");
-    setTasks([...tasks, newTask]);   
-
-
+    setTasks([...tasks, newTask]); 
     setTask("");
+  }
+
+  const deleteTasksAdd = (id) => {
+    
+    const filtreTask = tasks.filter(tasks => !(tasks.id ==id));
+    /* console.log({filtreTask}); */
+    setTasks(filtreTask);
+
   }
 
   return (
@@ -47,6 +49,7 @@ function App() {
         <Alltasks 
           className = 'createTask'                 
           tasks = {tasks} 
+          deleteTasksAdd = {deleteTasksAdd}
         /> 
         <ModifyTasks         
           className='modify_data'
