@@ -17,9 +17,9 @@ function Alltasks(props){
             props.tasks.map((v) => (
                 <li className="containerInputButton">
                   <span className='input_tasks'>
-                    {v.nombre}              
+                    {v.name}              
                   </span>
-                  <button className="btn_edit">
+                  <button className="btn_edit" onClick={()=> props.editTasksAdd(v)}>
                     Editar
                   </button>
                   <button className="btn_delete" onClick={()=> props.deleteTasksAdd(v.id)}>

@@ -1,30 +1,32 @@
 import React from "react";
 import '../styles/ModifyTasks.css'
 
-function ModifyTasks({ task,setTask, addTaskScreen, textName, textButton }){
+function ModifyTasks({ task,setTask, addTaskScreen, setEditTask,EditTaskNew, textEdit }){
+
     return(
       <div className="container_add">
-          <p className="text_add">
-                {/* Agregar tareas - editar tareas */}
-                { textName ? "Agregar tareas" : "Editar tareas" }
+          <p className="text_add">                
+            { setEditTask ?  "Editar tareas" : "Agregar tareas" }
+          </p>
+
+          <p className="textAler_add">
+            {textEdit}
           </p>
           
-          <form onSubmit={addTaskScreen}>
+          <form onSubmit={ setEditTask ? EditTaskNew : addTaskScreen }>
+
             <input 
               className="input_add" 
               type="text" 
               placeholder=" Ingrese la tarea"
               onChange={text => setTask(text.target.value)} 
               value={task}
-            />
-          
+            />          
             <button 
-              className="btn_add" 
-              type="submit"
-             
+              className={ setEditTask ? "btn_edid" : "btn_add" }              
+              type="submit"             
             >
-              {/* Editar / Agregar */}
-              {textButton ? "Agregar" : "Editar"}
+              { setEditTask ? "Guardar" :"Agregar"  }
             </button>
           </form>
       </div>
